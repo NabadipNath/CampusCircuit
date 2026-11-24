@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f17">
+  <meta name="description" content="NN ElectroLab — Electronics projects, PCB kits, firmware and custom prototypes.">
+  <meta name="application-name" content="NN ElectroLab Store">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>NN ElectroLab // Store</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-chip">▦</span>
+      <span><b>NN ElectroLab <i>//</i> Store</b><small>HARDWARE ARCHIVE & DIY KITS</small></span>
+    </a>
+    <nav><a href="#catalog">Projects</a><a href="#custom">Custom Builds</a><a href="#contact">Contact</a></nav>
+    <div class="top-actions">
+      <span id="network-status" class="network"><span></span> Online</span>
+      <button id="install-btn" class="btn btn-quiet hidden">Install App</button>
+      <button id="admin-open" class="icon-btn" title="Admin dashboard" aria-label="Admin dashboard">⚙</button>
+      <button id="cart-open" class="btn btn-primary">Cart <span id="cart-count" class="count">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero pcb-grid">
+      <div class="hero-glow"></div>
+      <div class="wrap hero-inner">
+        <div class="eyebrow"><span class="pulse"></span> OPEN-SOURCE SCHEMATICS • GERBERS • DIY KITS • PAN-INDIA</div>
+        <h1>Bench-Tested Electronics Projects, <em>Firmware</em> &amp; <strong>Hardware Kits.</strong></h1>
+        <p>Explore complete circuit concepts, bills of materials and embedded code. Choose digital design packs, DIY hardware kits or assembled prototypes from NN ElectroLab.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#catalog">Explore Projects <span>↗</span></a><a class="btn btn-outline" href="#custom">Request Custom Prototype</a></div>
+        <div class="stats">
+          <div><b id="project-total">04</b><small>Active Projects</small></div>
+          <div><b class="green">Instant</b><small>Digital Downloads</small></div>
+          <div><b class="amber">Pan-India</b><small>Tracked Shipping</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap catalog" id="catalog">
+      <div class="section-head"><div><span class="kicker">HARDWARE CATALOG</span><h2>Projects &amp; Kits Store</h2><p class="muted">Browse the current NN ElectroLab project collection.</p></div>
+        <label class="search">⌕ <input id="search" type="search" placeholder="Search ESP32, BMS, AI Camera, ROV…"></label>
+      </div>
+      <div id="filters" class="filters"></div>
+      <div id="project-grid" class="project-grid"></div>
+      <div id="empty" class="empty hidden">No projects match this search. Try another keyword or category.</div>
+    </section>
+
+    <section class="custom-section" id="custom">
+      <div class="wrap custom-card">
+        <div><span class="kicker amber">CUSTOM ENGINEERING & PROTOTYPING</span><h2>Need a Custom PCB, Firmware, or College / Lab Kit?</h2><p>From schematic capture and PCB layout to ESP32/STM32 firmware and 3D-printed enclosures, share your requirements with the lab.</p></div>
+        <button class="btn btn-outline" id="custom-open">Start a Request →</button>
+      </div>
+    </section>
+
+    <section class="wrap contact" id="contact">
+      <div><span class="kicker">GET IN TOUCH</span><h2>Let's build something useful.</h2><p class="muted">For project enquiries, custom prototypes, academic kits and technical support.</p></div>
+      <div class="contact-links"><a href="mailto:thenabadipnath@gmail.com">✉ thenabadipnath@gmail.com</a><a href="https://github.com/NabadipNath" target="_blank" rel="noopener">⌘ GitHub / NabadipNath</a><a href="https://www.youtube.com/@CC.nabadipnath" target="_blank" rel="noopener">▶ YouTube / @CC.nabadipnath</a></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> NN ElectroLab // Store</span><span>Designed for makers • Engineered in India</span></div></footer>
+
+  <dialog id="product-dialog" class="dialog wide"><button class="dialog-x" data-close="product-dialog">×</button><div id="product-detail"></div></dialog>
+  <dialog id="cart-dialog" class="dialog"><button class="dialog-x" data-close="cart-dialog">×</button><div id="cart-content"></div></dialog>
+  <dialog id="custom-dialog" class="dialog"><button class="dialog-x" data-close="custom-dialog">×</button>
+    <div class="dialog-pad"><span class="kicker amber">CUSTOM BUILD REQUEST</span><h2>Tell us what you want to build</h2>
+      <form id="custom-form" class="form">
+        <label>Your name<input name="name" required placeholder="Name"></label>
+        <label>Email / phone<input name="contact" required placeholder="Email or phone number"></label>
+        <label>Project type<select name="type"><option>PCB Design</option><option>Embedded Firmware</option><option>IoT / Telemetry</option><option>Robotics / ROV</option><option>Academic / Lab Kit</option><option>Other</option></select></label>
+        <label>Requirements<textarea name="details" required rows="4" placeholder="Describe the project, quantity, timeline and key components…"></textarea></label>
+        <button class="btn btn-primary" type="submit">Send Request via WhatsApp</button>
+      </form>
+    </div>
+  </dialog>
+  <dialog id="admin-dialog" class="dialog wide"><button class="dialog-x" data-close="admin-dialog">×</button><div id="admin-content"></div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
